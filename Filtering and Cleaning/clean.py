@@ -55,7 +55,7 @@ u"\U000024C2-\U0001F251"
 
 
 
-def f_all(arg):
+def f_all(arg): #This is used to perform text cleaning on tweet's text
     s=''
     if arg['full_text']!='':
         s=arg['full_text']
@@ -107,3 +107,50 @@ def f_all(arg):
             s_=s_+' '+e
     
     return s_
+
+
+def f_all_loc(arg): #This is used to perform text cleaning on "location" and "det_location" fields of tweet
+    s=''
+    if arg['']!='':
+        s=arg['det_location']
+    else:
+        s=arg['location']
+    #############################################################################################################    
+    #remove emoji
+    space=' '
+    s_=space.join(char for char in s )#break string into characters seperated by spaces(this is needed to seperate 
+    #adjacently joined emojis (other wise they are not recongnised by unicodedata.name() ))
+
+    #print(s_)
+    l=emoji_pattern.findall(s_)
+    underscore='x'
+    #print(l)
+    for e in l:#subsitute using emojis identified by emoji_pattern
+        try:
+            s=re.sub(e,' '+str(underscore.join((unicodedata.name(e).split()))) +' ',s)
+            #s=re.sub(e,' ',s)
+        except:
+            pass
+
+    for char in s : #subsitute using emojis identified by emoji library 
+        if char in emoji.UNICODE_EMOJI:
+            x=emoji.demojize(char).strip(':').replace('_','x')
+            s=re.sub(char,' '+str(x) +' ',s)
+            #s=re.sub(char,' ',s)
+    
+    #############################################################################################################
+    #basic cleaning
+    space=' '
+    s=s.lower() 
+    s=unescape((s))    
+    s=re.sub(p,'',s)    
+    s=space.join(s.split())
+    
+    #############################################################################################################
+    #remove non-alphanumeric
+    
+    s=re.sub('[^a-zA-Z ]+',' ',s) 
+    
+    return s
+
+
