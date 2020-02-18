@@ -17,9 +17,9 @@ Around 5,003 tweets were randomly picked and manually labelled into 3 classes of
 sklearn, genism, nltk, numpy, pandas, matplotlib, geopandas, tweepy, lanngdetect, geopy (Nominatim API) , re, unicodedata, emoji, urlmarker, json, ast, pickle, sys, time, os
 
 ## Data Used: 
-    -Lok Sabha election Tweets were collected via twitter api from 23rd May 2019 to 26th May 2019. After cleaning and filtering, it          turned out to be a collection of 5,27,474 tweets in English language along with fields like tweet id, user name & id, creation           time, location, followers count, favorite count, verified status etc. 
-    -5,303 random tweets from above data were manually labelled into positive, neutral and negative classes to form training and test        set (70-30 split) 
-    -“GeoLite2-City” Database was used to obtain names of 2,034 Indian Cities (which were used to identify Indian tweets in case a user       didn’t mention country name or state name in their account location but instead just mentioned city name)
+    -Lok Sabha election Tweets were collected via twitter api from 23rd May 2019 to 26th May 2019. After cleaning and filtering, it turned out to be a collection of 5,27,474 tweets in English language.
+    -5,303 random tweets from above data were manually labelled into positive, neutral and negative classes to form training and test set (70-30 split) 
+    -“GeoLite2-City” Database was used to obtain names of 2,034 Indian Cities (which were used to identify Indian tweets in case a user didn’t mention country name or state name in their account location but instead just mentioned city name)
     -“Indian Census 2011” based shapefile was used to plot a district-wise Indian map
 
 ## Test set accuracy
