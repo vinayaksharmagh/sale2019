@@ -21,3 +21,6 @@ sklearn, genism, nltk, numpy, pandas, matplotlib, geopandas, tweepy, lanngdetect
     -5,303 random tweets from above data were manually labelled into positive, neutral and negative classes to form training and test        set (70-30 split) 
     -“GeoLite2-City” Database was used to obtain names of 2,034 Indian Cities (which were used to identify Indian tweets in case a user       didn’t mention country name or state name in their account location but instead just mentioned city name)
     -“Indian Census 2011” based shapefile was used to plot a district-wise Indian map
+
+## Test set accuracy
+75.7%
